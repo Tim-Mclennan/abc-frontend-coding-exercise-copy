@@ -38,6 +38,8 @@ export function Input(props) {
         value={inputValue}
         onChange={handleChange}
         aria-label="Input Field"
+        aria-haspopup="listbox"
+        aria-controls="ResultsList"
         {...otherProps}
       />
     </>
