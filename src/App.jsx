@@ -24,19 +24,6 @@ export default function App() {
   // state to control whether the fetch operation should be performed:
   const [shouldFetch, setShouldFetch] = useState(true);
 
-
-
-  // Use useEffect to fetch data when the component mounts
-  useEffect(() => {
-    fetch(API_URL + 'Syd') // Example query 'Syd'
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []); // Empty dependency array means this effect runs once on mount
-
-
-
-
   // useEffect hook to fetch data based on the input value (Will depend on changes to inputValue)
   useEffect(() => {
     if (inputValue && shouldFetch) {
