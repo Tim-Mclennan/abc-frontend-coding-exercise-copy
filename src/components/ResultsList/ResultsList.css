@@ -16,3 +16,11 @@
 .ResultsList .ResultsList-item:hover {
   background: #0058cc;
 }
+
+/* Removing default styles for button and aligning with the design */
+.ResultsList-button {
+  background: none; 
+  border: none; 
+  font-size: large; 
+  font-weight: bold;
+}
