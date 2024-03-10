@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ResultsList } from "./components/ResultsList/ResultsList";
 import { Input } from "./components/Input/Input";
 import { Button } from "./components/Button/Button";
@@ -15,6 +15,10 @@ const API_SAMPLE = [
 ];
 
 export default function App() {
+  const [inputValue, setInputValue] = useState("");
+  const [results, setResults] = useState([]);
+  const [selectedSuburb, setSelectedSuburb] = useState("");
+
   // Use useEffect to fetch data when the component mounts
  useEffect(() => {
   fetch(API_URL + 'Syd') // Example query 'Syd'
