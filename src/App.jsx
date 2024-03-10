@@ -63,9 +63,6 @@ export default function App() {
 
   return (
     <section className="section">
-      {/* TODO: Implement a suburb autocomplete using &lt;Input /&gt;,
-      &lt;ResultsList /&gt; and &lt;Button /&gt; and data provided by the{" "} */}
-      {/* <a href="http://localhost:8010/proxy/suburbs.json?q=Syd">API</a> */}
       <div className="form">
         <Input label="Suburb" value={inputValue} onChange={handleInputChange} />
         <Button onClick={handleButtonClick} />

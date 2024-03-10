@@ -1,4 +1,6 @@
 .section {
+  width: 500px;
+  margin: 0 auto; /* Centers the section horizontally */
   display: flex;
   flex-direction: column;
   align-items: center;
