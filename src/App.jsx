@@ -20,13 +20,27 @@ export default function App() {
   const [selectedSuburb, setSelectedSuburb] = useState("");
 
   // Use useEffect to fetch data when the component mounts
- useEffect(() => {
-  fetch(API_URL + 'Syd') // Example query 'Syd'
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error fetching data:', error));
-}, []); // Empty dependency array means this effect runs once on mount
+  useEffect(() => {
+    fetch(API_URL + 'Syd') // Example query 'Syd'
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []); // Empty dependency array means this effect runs once on mount
 
+
+  const handleSelect = (item) => {
+    setInputValue(item.name);
+    setSelectedSuburb(item.name);
+    setResults([]);
+  };
+
+  const handleInputChange = (value) => {
+    setInputValue(value);
+  };
+
+  const handleButtonClick = () => {
+    alert(`Selected suburb: ${selectedSuburb}`);
+  };
 
 
   return (
