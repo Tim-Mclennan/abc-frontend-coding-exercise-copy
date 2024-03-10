@@ -5,7 +5,7 @@ This file can be used to detail:
 * Architecture decisions.
 * Future implementation details that cannot (or should not!) be attempted in the alotted time.
 
-## Accessbility:
+## Accessibility:
 - Keyboard Navigation: Ensure all interactive elements are accessible via keyboard. This includes implementing proper tab order and focus management, especially for the auto-complete functionality. Documenting a strategy for handling focus, especially after selecting an item from the results list, would enhance usability for keyboard users.
 
 - ARIA Attributes: While some ARIA attributes are already in use (e.g., aria-label, aria-haspopup, aria-controls), ensuring that dynamic content changes are announced to screen readers is crucial. For instance, when the results list is populated or updated, use aria-live regions to announce updates.
