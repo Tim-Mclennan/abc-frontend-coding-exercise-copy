@@ -15,7 +15,7 @@ import "./Input.css";
  * @prop {mixed} ... All other props will be forwarded to the native DOM input.
  */
 export function Input(props) {
-  const { className, value, label, onChange, ...otherProps } = props;
+  const { className, value, onChange, id, ...otherProps } = props;
 
   const [inputValue, setInputValue] = useState(value);
 
@@ -31,9 +31,8 @@ export function Input(props) {
 
   return (
     <>
-      {label && <label htmlFor="suburbInput">{label}</label>}
       <input
-        id="suburbInput"
+        id={id}
         className={"Input " + (className || "")}
         type="text"
         value={inputValue}
