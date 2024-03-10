@@ -30,8 +30,8 @@ export default function App() {
       fetch(`${API_URL}${inputValue}`)
         .then((response) => response.json())
         .then((data) => {
-            // Filter the results to only include suburbs that start with the input value
-            const filteredResults = data.filter((suburb) =>
+          // Filter the results to only include suburbs that start with the input value
+          const filteredResults = data.filter((suburb) =>
             suburb.name.toLowerCase().startsWith(inputValue.toLowerCase())
           );
           setResults(filteredResults);
@@ -67,9 +67,9 @@ export default function App() {
         <label htmlFor="suburbInput">Suburb</label>
         <div className="input-field">
           <Input id="suburbInput" value={inputValue} onChange={handleInputChange} />
-          {inputValue && <ResultsList className="results-list" items={results} onSelect={handleSelect} />}        
+          {inputValue && <ResultsList className="results-list" items={results} onSelect={handleSelect} />}
         </div>
-        <Button onClick={handleButtonClick} />
+        <Button onClick={handleButtonClick} id="submitButton" />
       </div>
     </section>
   );
