@@ -1,6 +1,7 @@
 .Button {
   background: #fdc605;
   border: none;
+  cursor: pointer;
 }
 
 .Button svg {
