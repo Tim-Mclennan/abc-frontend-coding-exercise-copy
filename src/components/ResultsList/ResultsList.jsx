@@ -53,7 +53,7 @@ export function ResultsList(props) {
             aria-selected={index === focusedIndex}
           >
             <button className="ResultsList-button">
-              {item.name}, {item.state.abbreviation}
+              {item?.name}, {item?.state?.abbreviation}
             </button>
           </li>
         );
