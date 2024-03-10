@@ -21,6 +21,10 @@ export default function App() {
   const [results, setResults] = useState([]);
   // State for storing the selected suburb
   const [selectedSuburb, setSelectedSuburb] = useState("");
+  // state to control whether the fetch operation should be performed:
+  const [shouldFetch, setShouldFetch] = useState(true);
+
+
 
   // Use useEffect to fetch data when the component mounts
   useEffect(() => {
@@ -30,13 +34,15 @@ export default function App() {
       .catch(error => console.error('Error fetching data:', error));
   }, []); // Empty dependency array means this effect runs once on mount
 
+
+
+
   // useEffect hook to fetch data based on the input value (Will depend on changes to inputValue)
   useEffect(() => {
-    if (inputValue) {
+    if (inputValue && shouldFetch) {
       fetch(`${API_URL}${inputValue}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data)
             // Filter the results to only include suburbs that start with the input value
             const filteredResults = data.filter((suburb) =>
             suburb.name.toLowerCase().startsWith(inputValue.toLowerCase())
@@ -47,18 +53,20 @@ export default function App() {
       // If the input value is empty, clear the results
       setResults([]);
     }
-  }, [inputValue]);
+  }, [inputValue, shouldFetch]);
 
   // Handler for selecting a suburb from the results list
   const handleSelect = (item) => {
     setInputValue(item.name);
     setSelectedSuburb(item.name);
     setResults([]);
+    setShouldFetch(false); // Prevent fetching after selection
   };
 
   // Handler for changes to the input field
   const handleInputChange = (value) => {
     setInputValue(value);
+    setShouldFetch(true); // Allow fetching when user types
   };
 
   // Handler for the button click
