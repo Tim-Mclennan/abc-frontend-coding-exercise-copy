@@ -13,7 +13,7 @@
   padding: 0.5rem 1rem;
 }
 
-.ResultsList .ResultsList-item:hover {
+.ResultsList-item.focused, .ResultsList-item:hover, .ResultsList-item[aria-selected="true"] {
   background: #0058cc;
 }
 
