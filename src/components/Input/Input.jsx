@@ -37,6 +37,7 @@ export function Input(props) {
         type="text"
         value={inputValue}
         onChange={handleChange}
+        aria-label="Input Field"
         {...otherProps}
       />
     </>

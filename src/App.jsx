@@ -62,12 +62,13 @@ export default function App() {
   };
 
   return (
-    <section className="section">
+    <section className="section" role="main">
       <div className="form">
         <label htmlFor="suburbInput">Suburb</label>
         <div className="input-field">
           <Input id="suburbInput" value={inputValue} onChange={handleInputChange} />
-          {inputValue && <ResultsList className="results-list" items={results} onSelect={handleSelect} />}        </div>
+          {inputValue && <ResultsList className="results-list" items={results} onSelect={handleSelect} />}        
+        </div>
         <Button onClick={handleButtonClick} />
       </div>
     </section>

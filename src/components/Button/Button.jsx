@@ -21,6 +21,7 @@ export function Button(props) {
       className={"Button " + (className || "")}
       onClick={onClick}
       {...otherProps}
+      aria-label="Submit"
     >
       <svg viewBox="0 0 24 24" width="24" height="16">
         <use xlinkHref={iconPath + "#dls-icon-arrow-right"} />

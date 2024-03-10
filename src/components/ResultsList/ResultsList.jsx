@@ -16,13 +16,14 @@ export function ResultsList(props) {
   const { className, onSelect, items, ...otherProps } = props;
 
   return (
-    <ul className={"ResultsList " + (className || "")} {...otherProps}>
+    <ul className={"ResultsList " + (className || "")} {...otherProps} role="listbox">
       {items.map(function(item, index) {
         return (
           <li
             key={"item" + index}
             className="ResultsList-item"
             onClick={() => onSelect && onSelect(item)}
+            role="option"
           >
             <button className="ResultsList-button">
               {item.name}, {item.state.abbreviation}
