@@ -15,8 +15,11 @@ const API_SAMPLE = [
 ];
 
 export default function App() {
+  // State for the input value entered by the user
   const [inputValue, setInputValue] = useState("");
+  // State for storing the fetched results from the API
   const [results, setResults] = useState([]);
+  // State for storing the selected suburb
   const [selectedSuburb, setSelectedSuburb] = useState("");
 
   // Use useEffect to fetch data when the component mounts
@@ -27,26 +30,46 @@ export default function App() {
       .catch(error => console.error('Error fetching data:', error));
   }, []); // Empty dependency array means this effect runs once on mount
 
+  // useEffect hook to fetch data based on the input value (Will depend on changes to inputValue)
+  useEffect(() => {
+    if (inputValue) {
+      fetch(`${API_URL}${inputValue}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data)
+            // Filter the results to only include suburbs that start with the input value
+            const filteredResults = data.filter((suburb) =>
+            suburb.name.toLowerCase().startsWith(inputValue.toLowerCase())
+          );
+          setResults(filteredResults);
+        });
+    } else {
+      // If the input value is empty, clear the results
+      setResults([]);
+    }
+  }, [inputValue]);
 
+  // Handler for selecting a suburb from the results list
   const handleSelect = (item) => {
     setInputValue(item.name);
     setSelectedSuburb(item.name);
     setResults([]);
   };
 
+  // Handler for changes to the input field
   const handleInputChange = (value) => {
     setInputValue(value);
   };
 
+  // Handler for the button click
   const handleButtonClick = () => {
     alert(`Selected suburb: ${selectedSuburb}`);
   };
 
-
   return (
     <section className="section">
-      TODO: Implement a suburb autocomplete using &lt;Input /&gt;,
-      &lt;ResultsList /&gt; and &lt;Button /&gt; and data provided by the{" "}
+      {/* TODO: Implement a suburb autocomplete using &lt;Input /&gt;,
+      &lt;ResultsList /&gt; and &lt;Button /&gt; and data provided by the{" "} */}
       <a href="http://localhost:8010/proxy/suburbs.json?q=Syd">API</a>.
       <div className="form">
         <Input value={inputValue} onChange={handleInputChange} />
