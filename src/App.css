@@ -14,6 +14,7 @@
 
 .input-field {
   position: relative;
+  width: 400px;
 }
 
 .results-list {
