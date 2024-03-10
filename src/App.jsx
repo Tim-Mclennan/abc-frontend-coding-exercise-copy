@@ -63,7 +63,7 @@ export default function App() {
 
   // Handler for the button click
   const handleButtonClick = () => {
-    alert(`Selected suburb: ${selectedSuburb}`);
+    alert(`Your selected suburb: ${selectedSuburb}`);
   };
 
   return (
