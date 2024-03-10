@@ -24,9 +24,13 @@ export function ResultsList(props) {
       event.preventDefault();
       setFocusedIndex((prevIndex) => Math.max(prevIndex - 1, 0));
     } else if (event.key === "Enter" && focusedIndex >= 0) {
-      event.preventDefault(); // Prevent form submission
-      onSelect(items[focusedIndex]);
-      document.getElementById("submitButton").focus();
+      const submitButton = document.getElementById("submitButton");
+      if (document.activeElement !== submitButton) {
+        event.preventDefault(); // Prevent form submission only if submit button is not focused
+        onSelect(items[focusedIndex]);
+        submitButton.focus();
+      }
+      // If the submit button is focused, do nothing, allowing the form to submit.
     }
   };
 
